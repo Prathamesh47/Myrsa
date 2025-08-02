@@ -8,6 +8,7 @@ import { EmployeeService, Employee } from '../../services/employee.service';
   standalone: true,
   selector: 'app-employee-form',
   templateUrl: './employee-form.component.html',
+  styleUrls: ['./employee-form.component.css'],
   imports: [CommonModule, ReactiveFormsModule, RouterModule],
 })
 export class EmployeeFormComponent implements OnInit {

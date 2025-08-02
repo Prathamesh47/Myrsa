@@ -1,35 +1,124 @@
-/* Center the form on the page */
+/* Global base styles */
+
+
+/* Container styling */
+.container {
+  max-width: 1000px;
+  margin: 60px auto;
+  padding: 30px;
+  background-color: #1f1f1f;
+  border-radius: 14px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+}
+
+/* Page Heading */
+h3 {
+  text-align: center;
+  color: #ffa726;
+  font-weight: 700;
+  font-size: 28px;
+  margin-bottom: 35px;
+  letter-spacing: 1px;
+}
+
+/* Buttons */
+.btn {
+  font-weight: 600;
+  font-size: 15px;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  padding: 8px 14px;
+  margin: 0 3px;
+}
+
+.btn-primary {
+  background-color: #ff9800;
+  border-color: #ff9800;
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background-color: #fb8c00;
+}
+
+.btn-warning {
+  background-color: #ffb300;
+  border-color: #ffb300;
+  color: #fff;
+}
+
+.btn-warning:hover {
+  background-color: #ffa000;
+}
+
+.btn-danger {
+  background-color: #e53935;
+  border-color: #e53935;
+  color: #fff;
+}
+
+.btn-danger:hover {
+  background-color: #d32f2f;
+}
+
+/* Table Styling */
+.table {
+  background-color: #2a2a2a;
+  border-collapse: collapse;
+  width: 100%;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-top: 20px;
+}
+
+.table thead {
+  background-color: #333;
+}
+
+.table thead th {
+  color: #ffa726;
+  text-align: center;
+  font-weight: 600;
+  padding: 12px;
+  font-size: 15px;
+}
+
+.table tbody td {
+  text-align: center;
+  padding: 12px;
+  color: #e0e0e0;
+  font-size: 14px;
+  border-top: 1px solid #444;
+}
+
+.table tbody tr:hover {
+  background-color: #383838;
+  cursor: pointer;
+}
+
+/* Add spacing for top button */
+a[routerLink="/add"] {
+  display: inline-block;
+  margin-bottom: 15px;
+}
+
+/* Form wrapper for Add/Edit pages */
 .form-wrapper {
   max-width: 600px;
-  margin: 50px auto;
-  padding: 30px;
+  margin: 60px auto;
+  padding: 30px 40px;
+  background-color: #2b2b2b;
   border-radius: 12px;
-  background-color: #ffffff;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
 }
 
-/* Heading style */
+/* Form Title */
 .form-title {
-  font-size: 28px;
-  font-weight: 600;
-  color: #1a73e8;
+  font-size: 26px;
+  font-weight: 700;
+  color: #ffa726;
   margin-bottom: 30px;
   text-align: center;
-}
-
-/* Input fields */
-input.form-control {
-  border-radius: 8px;
-  padding: 10px 14px;
-  border: 1px solid #dadce0;
-  box-shadow: none;
-  font-size: 16px;
-  transition: border 0.2s;
-}
-
-input.form-control:focus {
-  border-color: #1a73e8;
-  box-shadow: 0 0 0 2px rgba(26, 115, 232, 0.2);
 }
 
 /* Labels */
@@ -37,21 +126,61 @@ label {
   font-weight: 500;
   margin-bottom: 8px;
   display: block;
-  color: #202124;
+  color: #ffffff;
+}
+
+/* Input fields */
+input.form-control, select.form-control {
+  border-radius: 8px;
+  padding: 10px 14px;
+  border: 1px solid #555;
+  background-color: #3c3c3c;
+  color: #fff;
+  font-size: 15px;
+  margin-bottom: 20px;
+  width: 100%;
+  transition: all 0.3s ease;
+}
+
+input.form-control:focus {
+  border-color: #ffa726;
+  box-shadow: 0 0 0 3px rgba(255, 152, 0, 0.3);
+  outline: none;
 }
 
 /* Submit Button */
 .btn-submit {
-  background-color: #1a73e8;
+  background-color: #ff9800;
   color: white;
   border: none;
   padding: 12px 24px;
-  border-radius: 24px;
-  font-weight: 500;
+  border-radius: 8px;
+  font-weight: 600;
   font-size: 16px;
-  transition: background-color 0.3s;
+  width: 100%;
+  transition: background-color 0.3s ease;
 }
 
 .btn-submit:hover {
-  background-color: #1558b0;
+  background-color: #fb8c00;
+}
+
+/* Responsive behavior */
+@media (max-width: 768px) {
+  .container {
+    padding: 20px;
+  }
+
+  h3 {
+    font-size: 24px;
+  }
+
+  .btn {
+    width: 100%;
+    margin: 5px 0;
+  }
+
+  .table thead, .table tbody, .table td, .table th {
+    font-size: 13px;
+  }
 }

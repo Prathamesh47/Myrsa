@@ -7,6 +7,7 @@ import { EmployeeService, Employee } from '../../services/employee.service';
   standalone: true,
   selector: 'app-employee-list',
   templateUrl: './employee-list.component.html',
+  styleUrls: ['./employee-list.component.css'],
   imports: [CommonModule, RouterModule],
 })
 export class EmployeeListComponent implements OnInit {
