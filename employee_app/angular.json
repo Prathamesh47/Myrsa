@@ -83,8 +83,11 @@
             ],
             "styles": [
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
-              "src/styles.css"
+              "src/styles.css",
+              "src/app/components/employee-form/employee-form.component.css",
+              "src/app/components/employee-list/employee-list.component.css"
             ]
+
           }
         }
       }

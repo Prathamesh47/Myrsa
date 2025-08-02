@@ -1,9 +1,16 @@
 <div class="container mt-4">
   <h3>Employee List</h3>
-  <a routerLink="/add" class="btn btn-primary mb-3">Add Employee</a>
-  <table class="table table-bordered">
-    <thead>
-      <tr><th>ID</th><th>Name</th><th>Email</th><th>Position</th><th>Actions</th></tr>
+  <a routerLink="/add" class="btn btn-primary">Add Employee</a>
+
+  <table class="table table-bordered table-hover mt-3">
+    <thead class="table-dark">
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Position</th>
+        <th>Actions</th>
+      </tr>
     </thead>
     <tbody>
       <tr *ngFor="let emp of employees">

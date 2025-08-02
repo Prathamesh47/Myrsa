@@ -1,18 +1,38 @@
-<div class="container mt-4">
-  <h3>{{ id ? 'Update' : 'Add' }} Employee</h3>
+<div class="container mt-5">
+  <h2>{{ id ? 'Edit' : 'Add' }} Employee</h2>
   <form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+    <!-- Name -->
     <div class="mb-3">
-      <label>Name</label>
+      <label class="form-label">Name</label>
       <input type="text" class="form-control" formControlName="name" />
+      <div class="text-danger" *ngIf="submitted && form.get('name')?.errors?.['required']">
+        Name is required.
+      </div>
     </div>
+
+    <!-- Email -->
     <div class="mb-3">
-      <label>Email</label>
+      <label class="form-label">Email</label>
       <input type="email" class="form-control" formControlName="email" />
+      <div class="text-danger" *ngIf="submitted && form.get('email')?.errors?.['required']">
+        Email is required.
+      </div>
+      <div class="text-danger" *ngIf="submitted && form.get('email')?.errors?.['email']">
+        Enter a valid email address.
+      </div>
     </div>
+
+    <!-- Position -->
     <div class="mb-3">
-      <label>Position</label>
+      <label class="form-label">Position</label>
       <input type="text" class="form-control" formControlName="position" />
+      <div class="text-danger" *ngIf="submitted && form.get('position')?.errors?.['required']">
+        Position is required.
+      </div>
     </div>
-    <button class="btn btn-success" type="submit">Submit</button>
+
+    <!-- Submit -->
+    <button type="submit" class="btn btn-primary">Submit</button>
   </form>
 </div>

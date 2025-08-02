@@ -12,6 +12,7 @@ import { EmployeeService, Employee } from '../../services/employee.service';
 })
 export class EmployeeFormComponent implements OnInit {
   form: FormGroup;
+  submitted = false;
   id?: number;
 
   constructor(
@@ -22,7 +23,7 @@ export class EmployeeFormComponent implements OnInit {
   ) {
     this.form = fb.group({
       name: ['', Validators.required],
-      email: ['', [Validators.required]],
+      email: ['', [Validators.required, Validators.email]],
       position: ['', Validators.required],
     });
   }
@@ -35,6 +36,9 @@ export class EmployeeFormComponent implements OnInit {
   }
 
   onSubmit() {
+    this.submitted = true;
+    if (this.form.invalid) return;
+
     const emp: Employee = this.form.value;
     if (this.id) {
       this.svc.update(this.id, emp).subscribe(() => this.router.navigate(['/']));
