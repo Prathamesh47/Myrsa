@@ -41,10 +41,31 @@ export class EmployeeFormComponent implements OnInit {
     if (this.form.invalid) return;
 
     const emp: Employee = this.form.value;
+
     if (this.id) {
-      this.svc.update(this.id, emp).subscribe(() => this.router.navigate(['/']));
+      this.svc.update(this.id, emp).subscribe({
+        next: () => this.router.navigate(['/']),
+        error: (err) => {
+          this.handleError(err);
+        }
+      });
     } else {
-      this.svc.create(emp).subscribe(() => this.router.navigate(['/']));
+      this.svc.create(emp).subscribe({
+        next: () => this.router.navigate(['/']),
+        error: (err) => {
+          this.handleError(err);
+        }
+      });
     }
   }
+  handleError(error: any) {
+    if (error.status === 400) {
+      alert('Error: Email already exists. Please use a different email.');
+    } else {
+      alert('An unexpected error occurred. Please try again later.');
+      console.error(error);
+    }
+  }
+
+
 }
