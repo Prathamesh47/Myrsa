@@ -4,11 +4,17 @@ import { Employee } from '../models/employee.model';
 
 export const createEmployee = (req: Request, res: Response) => {
   const employee: Employee = req.body;
+
   EmployeeService.create(employee, (err: any, result: any) => {
-    if (err) return res.status(500).send(err);
-    res.status(201).send({ id: result.insertId, ...employee });
+    if (err) {
+      const statusCode = err.statusCode || 500; 
+      return res.status(statusCode).json({ error: err.message });
+    }
+
+    res.status(201).json({ id: result.insertId, ...employee });
   });
 };
+
 
 export const getAllEmployees = (req: Request, res: Response) => {
   const keyword = req.query.Name as string | undefined;
