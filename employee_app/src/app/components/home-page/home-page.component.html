@@ -1,0 +1,59 @@
+<div class="container">
+  <div class="header mb-2">
+    <h2 class="header-title">Employee Dashboard</h2>
+    <button class="header-btn" (click)="goToAddEmployee()">Add Employee</button>
+  </div>
+
+
+  <div class="stats mb-2 ">
+    <div class="stat-card">
+      <div class="stat-title">Total Employees</div>
+      <div class="stat-value">{{ employees.length }}</div>
+    </div>
+
+    <div
+      class="stat-card"
+      *ngFor="let pos of positions"
+      (click)="filterByPosition(pos)"
+    >
+      <div class="stat-title">{{ pos }}</div>
+      <div class="stat-value">{{ getCountByPosition(pos) }}</div>
+    </div>
+  </div>
+
+  <div class="employee-list">
+    <ng-container *ngIf="filteredEmployees.length; else noData">
+      <div class="employee-card" *ngFor="let emp of filteredEmployees">
+        <h3>{{ emp.name }}</h3>
+        <p>Email: {{ emp.email }}</p>
+        <p>Position: {{ emp.position }}</p>
+        <div class="action-buttons">
+          <button
+            class="btn-edit"
+            *ngIf="emp.id !== undefined"
+            (click)="editEmployee(emp.id)">
+            Edit
+          </button>
+
+          <button
+          class="btn-delete"
+          *ngIf="emp.id !== undefined"
+          (click)="deleteEmployee(emp.id)">
+          Delete
+        </button>
+
+        </div>
+      </div>
+    </ng-container>
+
+    <ng-template #noData>
+      <p class="no-data">No employee data to show.</p>
+    </ng-template>
+  </div>
+
+  <div class="center mt-2">
+    <button (click)="viewAllEmployees()">View All Employees</button>
+  </div>
+</div>
+
+

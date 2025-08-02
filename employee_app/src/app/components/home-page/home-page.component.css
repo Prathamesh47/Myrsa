@@ -1,0 +1,236 @@
+/* General layout */
+body {
+  background-color: #121212;
+  font-family: 'Poppins', 'Segoe UI', sans-serif;
+  color: #e0e0e0;
+  margin: 0;
+  padding: 0;
+}
+
+/* Main container */
+.container {
+  max-width: 1200px;
+  margin: 3rem auto;
+  padding: 2rem;
+  background-color: #1f1f1f;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(255, 165, 0, 0.1);
+}
+
+/* Header */
+h2 {
+  text-align: center;
+  font-size: 2rem;
+  color: orange;
+  margin-bottom: 2rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+/* Statistics section */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+/* Individual stat card */
+.stat-card {
+  background-color: #2c2c2c;
+  padding: 1.8rem;
+  border-radius: 10px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid #3a3a3a;
+  box-shadow: 0 0 12px rgba(255, 165, 0, 0.05);
+  cursor: pointer;
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(255, 165, 0, 0.2);
+}
+
+/* Card content */
+.stat-title {
+  font-size: 1.1rem;
+  color: #bbbbbb;
+  margin-bottom: 0.8rem;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+
+.stat-value {
+  font-size: 2.4rem;
+  font-weight: bold;
+  color: orange;
+}
+
+/* Employee List Section */
+.employee-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  padding: 2rem;
+  background-color: #1f1f1f;
+  border-radius: 12px;
+  margin: 2rem auto;
+}
+
+/* Individual employee card */
+.employee-card {
+  background-color: #2c2c2c;
+  border: 1px solid #3a3a3a;
+  border-radius: 10px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 4px 12px rgba(255, 165, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.employee-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 6px 16px rgba(255, 165, 0, 0.2);
+}
+
+.employee-card h3 {
+  color: orange;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+  font-size: 1.3rem;
+}
+
+.employee-card p {
+  color: #bbbbbb;
+  margin: 0.3rem 0;
+  font-size: 0.95rem;
+}
+
+/* No Data Message */
+.no-data {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #999999;
+  margin-top: 2rem;
+}
+
+/* Button Styles */
+button {
+  background-color: orange;
+  color: #1f1f1f;
+  padding: 0.7rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  margin-top: 1rem;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+  background-color: #ff9933;
+  transform: scale(1.05);
+  cursor: pointer;
+}
+
+/* Center alignment utility */
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Utility spacing */
+.mt-2 { margin-top: 2rem; }
+.mb-2 { margin-bottom: 2rem; }
+.p-2 { padding: 1rem; }
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  .container {
+    padding: 1rem;
+  }
+
+  h2 {
+    font-size: 1.6rem;
+  }
+
+  .employee-list {
+    grid-template-columns: 1fr;
+    padding: 1rem;
+  }
+}
+
+/* Action buttons (Edit/Delete) */
+.action-buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+/* Edit Button */
+.btn-edit {
+  background-color: #ffa500;
+  color: #1f1f1f;
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-edit:hover {
+  background-color: #ffb733;
+  transform: scale(1.05);
+  cursor: pointer;
+}
+
+/* Delete Button */
+.btn-delete {
+  background-color: #ff4d4d;
+  color: #fff;
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-delete:hover {
+  background-color: #ff1a1a;
+  transform: scale(1.05);
+  cursor: pointer;
+}
+
+/* Updated header styling for proper alignment */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #1f1f1f;
+  /* border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(255, 165, 0, 0.1); */
+}
+
+.header-title {
+  margin: 0;
+  font-size: 2rem;
+  color: orange;
+  font-weight: bold;
+}
+
+.header-btn {
+  background-color: orange;
+  color: #1f1f1f;
+  padding: 0.6rem 1.2rem;
+  border: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+

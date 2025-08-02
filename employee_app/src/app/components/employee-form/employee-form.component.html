@@ -26,7 +26,12 @@
     <!-- Position -->
     <div class="mb-3">
       <label class="form-label">Position</label>
-      <input type="text" class="form-control" formControlName="position" />
+      <select class="form-select" formControlName="position">
+        <option value="">Select a position</option>
+        <option value="Software Development">Software Development</option>
+        <option value="Testing">Testing</option>
+        <option value="Consultant">Consultant</option>
+      </select>
       <div class="text-danger" *ngIf="submitted && form.get('position')?.errors?.['required']">
         Position is required.
       </div>

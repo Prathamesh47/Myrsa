@@ -4,13 +4,30 @@ import { RowDataPacket } from 'mysql2';
 
 
 export const EmployeeService = {
-  create: (employee: Employee, callback: Function) => {
+    create: (employee: Employee, callback: Function) => {
     const { name, email, position } = employee;
-    db.query('INSERT INTO employees (name, email, position) VALUES (?, ?, ?)',
-      [name, email, position],
-      (err, result) => callback(err, result));
-  },
 
+    // First check if email already exists
+    db.query<RowDataPacket[]>(
+      'SELECT * FROM employees WHERE email = ?', 
+      [email], 
+      (err, result) => {
+        if (err) return callback(err);
+
+        if ((result as RowDataPacket[]).length > 0) {
+          // Email already exists
+          return callback(new Error('Employee with this email already exists'));
+        }
+
+        // Proceed to insert
+        db.query(
+          'INSERT INTO employees (name, email, position) VALUES (?, ?, ?)',
+          [name, email, position],
+          (err, insertResult) => callback(err, insertResult)
+        );
+      }
+    );
+  },
   findAll: (keyword: string | undefined, callback: Function) => {
     const query = keyword
       ? 'SELECT * FROM employees WHERE name LIKE ?'

@@ -1,7 +1,4 @@
-/* Global base styles */
 
-
-/* Container styling */
 .container {
   max-width: 1000px;
   margin: 60px auto;
@@ -183,4 +180,23 @@ input.form-control:focus {
   .table thead, .table tbody, .table td, .table th {
     font-size: 13px;
   }
+}
+
+/* Dropdown Styling */
+select.form-select {
+  border-radius: 8px;
+  padding: 10px 14px;
+  border: 1px solid #555;
+  background-color: #3c3c3c;
+  color: #fff;
+  font-size: 15px;
+  margin-bottom: 20px;
+  width: 100%;
+  transition: all 0.3s ease;
+}
+
+select.form-select:focus {
+  border-color: #ffa726;
+  box-shadow: 0 0 0 3px rgba(255, 152, 0, 0.3);
+  outline: none;
 }
