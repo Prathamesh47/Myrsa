@@ -5,8 +5,8 @@ import { Observable } from 'rxjs';
 export interface Employee {
   id?: number;
   name: string;
-  age: number;
-  salary: number;
+  email: string;
+  position: string;
 }
 
 @Injectable({

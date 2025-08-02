@@ -22,8 +22,8 @@ export class EmployeeFormComponent implements OnInit {
   ) {
     this.form = fb.group({
       name: ['', Validators.required],
-      age: [18, [Validators.required, Validators.min(18)]],
-      salary: [0, Validators.required],
+      email: ['', [Validators.required]],
+      position: ['', Validators.required],
     });
   }
 

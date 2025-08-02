@@ -3,14 +3,14 @@
   <a routerLink="/add" class="btn btn-primary mb-3">Add Employee</a>
   <table class="table table-bordered">
     <thead>
-      <tr><th>ID</th><th>Name</th><th>Age</th><th>Salary</th><th>Actions</th></tr>
+      <tr><th>ID</th><th>Name</th><th>Email</th><th>Position</th><th>Actions</th></tr>
     </thead>
     <tbody>
       <tr *ngFor="let emp of employees">
         <td>{{ emp.id }}</td>
         <td>{{ emp.name }}</td>
-        <td>{{ emp.age }}</td>
-        <td>{{ emp.salary }}</td>
+        <td>{{ emp.email }}</td>
+        <td>{{ emp.position }}</td>
         <td>
           <a [routerLink]="['/edit', emp.id]" class="btn btn-sm btn-warning">Edit</a>
           <button class="btn btn-sm btn-danger" (click)="delete(emp.id!)">Delete</button>
