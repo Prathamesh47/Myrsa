@@ -7,19 +7,21 @@ export const EmployeeService = {
     create: (employee: Employee, callback: Function) => {
     const { name, email, position } = employee;
 
-    // First check if email already exists
+    // First, check if email already exists
     db.query<RowDataPacket[]>(
-      'SELECT * FROM employees WHERE email = ?', 
-      [email], 
+      'SELECT * FROM employees WHERE email = ?',
+      [email],
       (err, result) => {
         if (err) return callback(err);
 
         if ((result as RowDataPacket[]).length > 0) {
-          // Email already exists
-          return callback(new Error('Employee with this email already exists'));
+          // Email already exists → send 400 Bad Request
+          const error = new Error('Employee with this email already exists');
+          (error as any).statusCode = 400;
+          return callback(error);
         }
 
-        // Proceed to insert
+        // Insert the new employee
         db.query(
           'INSERT INTO employees (name, email, position) VALUES (?, ?, ?)',
           [name, email, position],
@@ -28,6 +30,8 @@ export const EmployeeService = {
       }
     );
   },
+
+
   findAll: (keyword: string | undefined, callback: Function) => {
     const query = keyword
       ? 'SELECT * FROM employees WHERE name LIKE ?'
