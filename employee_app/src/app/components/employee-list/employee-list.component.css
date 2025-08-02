@@ -1,0 +1,12 @@
+table {
+  margin: auto;
+  border-collapse: collapse;
+}
+th, td {
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+}
+
+a, button {
+  margin-right: 5px;
+}

@@ -1,0 +1,18 @@
+<div class="container mt-4">
+  <h3>{{ id ? 'Update' : 'Add' }} Employee</h3>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="mb-3">
+      <label>Name</label>
+      <input class="form-control" formControlName="name" />
+    </div>
+    <div class="mb-3">
+      <label>Age</label>
+      <input type="number" class="form-control" formControlName="age" />
+    </div>
+    <div class="mb-3">
+      <label>Salary</label>
+      <input type="number" class="form-control" formControlName="salary" />
+    </div>
+    <button class="btn btn-success" type="submit">Submit</button>
+  </form>
+</div>
