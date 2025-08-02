@@ -3,20 +3,7 @@ Backend
 
 ------------------------------------------------------------------------------------------------------------
 
-src/
-	config/
-		database.ts          // DB connection setup
-	controllers/
-		employee.controller.ts  // Business logic (handles request/response)
-	models/
-		employee.model.ts    // Employee data type definition 
-	routes/
-		employee.routes.ts   // Defines API endpoints (GET, POST, etc.)
-	services/
-		employee.service.ts  // Database queries logic
-	app.ts                   // Middleware and routing setup
-	server.ts                // Entry point to start the server : start the server at localhost:8080
-----------------------------------------------
+
 
 
 mkdir task
@@ -58,5 +45,41 @@ Add npm scripts to package.json:
 }
 
 npx ts-node src/server.ts
+----------------------------------------------
+src/
+	config/
+		database.ts          // DB connection setup
+	controllers/
+		employee.controller.ts  // Business logic (handles request/response)
+	models/
+		employee.model.ts    // Employee data type definition 
+	routes/
+		employee.routes.ts   // Defines API endpoints (GET, POST, etc.)
+	services/
+		employee.service.ts  // Database queries logic
+	app.ts                   // Middleware and routing setup
+	server.ts                // Entry point to start the server : start the server at localhost:8080
+----------------------------------------------
 
 -----------------------------------------------------------------------------------------------------
+
+Frontend
+
+npm install -g @angular/cli
+ng version
+
+ng new employee_app
+cd employee_app
+npm install bootstrap@4 --save
+
+//
+In angular.json, under "styles":
+---
+"node_modules/bootstrap/dist/css/bootstrap.min.css",
+"src/styles.css"
+---
+//
+
+npm install @angular/forms
+
+ng serve
