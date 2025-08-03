@@ -84,10 +84,25 @@ Frontend: Angular, Bootstrap
 Backend: Node.js, Express, TypeScript
 
 Database: MySQL
-
 Backend: http://localhost:8080
-
 Frontend: http://localhost:4200
+
+# MYSQL Database creation
+CREATE DATABASE IF NOT EXISTS employees_db;
+
+USE employees_db;
+
+CREATE TABLE IF NOT EXISTS employees (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(100) NOT NULL,
+  email VARCHAR(100) NOT NULL UNIQUE,
+  position VARCHAR(100) NOT NULL
+);
+
+select * from employees;
+ALTER TABLE employees ADD CONSTRAINT unique_email UNIQUE (email);
+
+
 
 
 
