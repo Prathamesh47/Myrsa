@@ -10,36 +10,27 @@
       <div class="stat-value">{{ employees.length }}</div>
     </div>
 
-    <div
-      class="stat-card clickable"
-      *ngFor="let pos of positions"
-    >
+    <div class="stat-card clickable" *ngFor="let pos of positions">
       <div class="stat-title">{{ pos }}</div>
       <div class="stat-value">{{ getCountByPosition(pos) }}</div>
-
-      <!-- View/Hide tag in bottom-right -->
-      <span
-        class="card-tag"
-        *ngIf="currentPosition !== pos"
-        (click)="filterByPosition(pos)"
-      >
-        View
-      </span>
-
-      <span
-        class="card-tag"
-        *ngIf="currentPosition === pos"
-        (click)="clearFilteredPosition()"
-      >
-        Hide
-      </span>
+      <span class="card-tag" *ngIf="currentPosition !== pos" (click)="filterByPosition(pos)">View</span>
+      <span class="card-tag" *ngIf="currentPosition === pos" (click)="clearFilteredPosition()">Hide</span>
     </div>
   </div>
 
-  <!-- Show "View All" only when no position is selected -->
-  <div class="center mt-2" *ngIf="!currentPosition">
+  <div class="center mt-2 action-group" *ngIf="!currentPosition">
     <button (click)="viewAllEmployees()" *ngIf="!showAllEmployees">View All Employees</button>
     <button (click)="hideAllEmployees()" *ngIf="showAllEmployees">Hide Employees</button>
+    <button (click)="deleteAllEmployees()" *ngIf="employees.length" class="btn-delete-all">Delete All Employees</button>
+  </div>
+
+  <div class="search-bar" *ngIf="filteredEmployees.length">
+    <input
+      type="text"
+      [(ngModel)]="searchTerm"
+      (input)="onSearch()"
+      placeholder="Search by employee name..."
+    />
   </div>
 
   <div class="employee-list">
@@ -49,19 +40,8 @@
         <p>Email: {{ emp.email }}</p>
         <p>Position: {{ emp.position }}</p>
         <div class="action-buttons">
-          <button
-            class="btn-edit"
-            *ngIf="emp.id !== undefined"
-            (click)="editEmployee(emp.id)">
-            Edit
-          </button>
-
-          <button
-            class="btn-delete"
-            *ngIf="emp.id !== undefined"
-            (click)="deleteEmployee(emp.id)">
-            Delete
-          </button>
+          <button class="btn-edit" *ngIf="emp.id !== undefined" (click)="editEmployee(emp.id)">Edit</button>
+          <button class="btn-delete" *ngIf="emp.id !== undefined" (click)="deleteEmployee(emp.id)">Delete</button>
         </div>
       </div>
     </ng-container>
