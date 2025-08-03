@@ -5,20 +5,28 @@
   </div>
 
 
-  <div class="stats mb-2 ">
+
+  <div class="stats mb-2">
     <div class="stat-card">
       <div class="stat-title">Total Employees</div>
       <div class="stat-value">{{ employees.length }}</div>
     </div>
 
-    <div
-      class="stat-card"
-      *ngFor="let pos of positions"
-      (click)="filterByPosition(pos)"
-    >
-      <div class="stat-title">{{ pos }}</div>
-      <div class="stat-value">{{ getCountByPosition(pos) }}</div>
-    </div>
+  <div
+    class="stat-card clickable"
+    *ngFor="let pos of positions"
+    (click)="filterByPosition(pos)"
+  >
+    <div class="stat-title">{{ pos }}</div>
+    <div class="stat-value">{{ getCountByPosition(pos) }}</div>
+    <span class="card-tag">View</span>
+  </div>
+</div>
+
+
+  <div class="center mt-2">
+    <button (click)="viewAllEmployees()" *ngIf="!showAllEmployees">View All Employees</button>
+    <button (click)="hideAllEmployees()" *ngIf="showAllEmployees">Hide Employees</button>
   </div>
 
   <div class="employee-list">
@@ -51,9 +59,6 @@
     </ng-template>
   </div>
 
-  <div class="center mt-2">
-    <button (click)="viewAllEmployees()">View All Employees</button>
-  </div>
 </div>
 
 

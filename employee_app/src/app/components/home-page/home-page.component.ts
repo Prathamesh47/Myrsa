@@ -61,6 +61,11 @@ export class HomePageComponent implements OnInit {
     }
     this.router.navigate(['/edit', id]);
   }
+  hideAllEmployees(): void {
+    this.filteredEmployees = [];
+    this.showAllEmployees = false;
+  }
+
 
   deleteEmployee(id?: number): void {
     if (!id) {
