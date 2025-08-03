@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { EmployeeService, Employee } from '../../services/employee.service';
+import { Location } from '@angular/common';
 
 @Component({
   standalone: true,
@@ -20,7 +21,8 @@ export class EmployeeFormComponent implements OnInit {
     private fb: FormBuilder,
     private svc: EmployeeService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private location: Location
   ) {
     this.form = fb.group({
       name: ['', Validators.required],
@@ -67,5 +69,9 @@ export class EmployeeFormComponent implements OnInit {
     }
   }
 
-  
+    goBack() {
+      this.location.back();
+    }
+
+
 }

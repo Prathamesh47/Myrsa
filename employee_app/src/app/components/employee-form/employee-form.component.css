@@ -145,7 +145,7 @@ input.form-control:focus {
   outline: none;
 }
 
-/* Submit Button */
+/* Submit Button
 .btn-submit {
   background-color: #ff9800;
   color: white;
@@ -160,7 +160,7 @@ input.form-control:focus {
 
 .btn-submit:hover {
   background-color: #fb8c00;
-}
+} */
 
 /* Responsive behavior */
 @media (max-width: 768px) {
@@ -199,4 +199,51 @@ select.form-select:focus {
   border-color: #ffa726;
   box-shadow: 0 0 0 3px rgba(255, 152, 0, 0.3);
   outline: none;
+}
+
+
+/* Button container - aligns buttons side by side and spaces them */
+/* Button group positioning: bottom-left for back, bottom-right for submit */
+.button-group {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 40px;
+  margin-top: 30px;
+  border-top: 1px solid #444;
+}
+
+/* Add spacing around buttons */
+.button-group .btn-custom {
+  padding: 12px 30px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 10px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.3);
+}
+
+/* Specific styling for Back button */
+.btn-back {
+  background-color: #4a4a4a;
+  color: #fff;
+  border: 1px solid #666;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-back:hover {
+  background-color: #6b6b6b;
+  transform: translateY(-2px);
+}
+
+/* Specific styling for Submit button */
+.btn-submit {
+  background-color: #ff7a00;
+  color: #fff;
+  border: 1px solid #ff7a00;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-submit:hover {
+  background-color: #e76b00;
+  transform: translateY(-2px);
 }
