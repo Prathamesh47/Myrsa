@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environment } from '../../environment';
 
 export interface Employee {
   id?: number;
@@ -13,8 +14,7 @@ export interface Employee {
   providedIn: 'root'
 })
 export class EmployeeService {
-  private baseUrl = 'http://localhost:8080/api/employee';  // adjust port if needed
-
+  private baseUrl = environment.apiUrl;  
   constructor(private http: HttpClient) {}
 
   getAll(): Observable<Employee[]> {

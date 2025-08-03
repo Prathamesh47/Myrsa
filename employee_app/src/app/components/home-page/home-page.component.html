@@ -4,27 +4,40 @@
     <button class="header-btn" (click)="goToAddEmployee()">Add Employee</button>
   </div>
 
-
-
   <div class="stats mb-2">
     <div class="stat-card">
       <div class="stat-title">Total Employees</div>
       <div class="stat-value">{{ employees.length }}</div>
     </div>
 
-  <div
-    class="stat-card clickable"
-    *ngFor="let pos of positions"
-    (click)="filterByPosition(pos)"
-  >
-    <div class="stat-title">{{ pos }}</div>
-    <div class="stat-value">{{ getCountByPosition(pos) }}</div>
-    <span class="card-tag">View</span>
+    <div
+      class="stat-card clickable"
+      *ngFor="let pos of positions"
+    >
+      <div class="stat-title">{{ pos }}</div>
+      <div class="stat-value">{{ getCountByPosition(pos) }}</div>
+
+      <!-- View/Hide tag in bottom-right -->
+      <span
+        class="card-tag"
+        *ngIf="currentPosition !== pos"
+        (click)="filterByPosition(pos)"
+      >
+        View
+      </span>
+
+      <span
+        class="card-tag"
+        *ngIf="currentPosition === pos"
+        (click)="clearFilteredPosition()"
+      >
+        Hide
+      </span>
+    </div>
   </div>
-</div>
 
-
-  <div class="center mt-2">
+  <!-- Show "View All" only when no position is selected -->
+  <div class="center mt-2" *ngIf="!currentPosition">
     <button (click)="viewAllEmployees()" *ngIf="!showAllEmployees">View All Employees</button>
     <button (click)="hideAllEmployees()" *ngIf="showAllEmployees">Hide Employees</button>
   </div>
@@ -44,12 +57,11 @@
           </button>
 
           <button
-          class="btn-delete"
-          *ngIf="emp.id !== undefined"
-          (click)="deleteEmployee(emp.id)">
-          Delete
-        </button>
-
+            class="btn-delete"
+            *ngIf="emp.id !== undefined"
+            (click)="deleteEmployee(emp.id)">
+            Delete
+          </button>
         </div>
       </div>
     </ng-container>
@@ -58,7 +70,4 @@
       <p class="no-data">No employee data to show.</p>
     </ng-template>
   </div>
-
 </div>
-
-

@@ -13,8 +13,13 @@ import { RouterModule } from '@angular/router';
 export class HomePageComponent implements OnInit {
   employees: Employee[] = [];
   positions: string[] = [];
+  // filteredEmployees: Employee[] = [];
+  // showAllEmployees: boolean = true;
+
+  currentPosition: string | null = null;
+  showAllEmployees = false;
   filteredEmployees: Employee[] = [];
-  showAllEmployees: boolean = true;
+
 
   constructor(private employeeService: EmployeeService, private router: Router) {}
 
@@ -40,10 +45,10 @@ export class HomePageComponent implements OnInit {
     return this.employees.filter(emp => emp.position === position).length;
   }
 
-  filterByPosition(position: string): void {
-    this.filteredEmployees = this.employees.filter(emp => emp.position === position);
-    this.showAllEmployees = false;
-  }
+  // filterByPosition(position: string): void {
+  //   this.filteredEmployees = this.employees.filter(emp => emp.position === position);
+  //   this.showAllEmployees = false;
+  // }
 
   viewAllEmployees(): void {
     this.filteredEmployees = [...this.employees];
@@ -88,4 +93,16 @@ export class HomePageComponent implements OnInit {
       }
     });
   }
+
+  filterByPosition(pos: string) {
+    this.currentPosition = pos;
+    this.showAllEmployees = false;
+    this.filteredEmployees = this.employees.filter(emp => emp.position === pos);
+  }
+
+  clearFilteredPosition() {
+    this.currentPosition = null;
+    this.filteredEmployees = [];
+  }
+
 }
