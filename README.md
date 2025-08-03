@@ -1,25 +1,21 @@
-# Myrsa
-Backend
+# Myrsa - Employee Management System
 
-------------------------------------------------------------------------------------------------------------
+A full-stack employee management system using Angular (Frontend) and Express + TypeScript + MySQL (Backend).
 
+---
 
+#  Backend Setup
 
+1. Initialize project:
 
-mkdir task
-cd task
+```bash
+mkdir task && cd task
 npm init -y
-
 npm install express mysql2 cors
-npm install --save-dev typescript ts-node @types/node @types/express
-
-npm install --save-dev @types/cors
-
-
+npm install --save-dev typescript ts-node @types/node @types/express @types/cors
 npx tsc --init
 
-Then update your tsconfig.json like this:
-
+2. Update tsconfig.json:
 {
   "compilerOptions": {
     "target": "ES6",
@@ -27,59 +23,71 @@ Then update your tsconfig.json like this:
     "rootDir": "./src",
     "outDir": "./dist",
     "strict": true,
-    "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true
+    "esModuleInterop": true
   }
 }
 
+3. Project structure:
 
-mkdir -p src/{config,controllers,models,routes,services}
-touch src/{app.ts,server.ts}
+src/
+  config/         # DB connection
+  controllers/    # Logic
+  models/         # Data types
+  routes/         # API endpoints
+  services/       # DB operations
+  app.ts
+  server.ts       # Starts server on port 8080
 
+4. Scripts in package.json:
 
-Add npm scripts to package.json:
 "scripts": {
   "dev": "ts-node src/server.ts",
   "build": "tsc",
   "start": "node dist/server.js"
 }
 
+5. Run server:
+
 npx ts-node src/server.ts
-----------------------------------------------
-src/
-	config/
-		database.ts          // DB connection setup
-	controllers/
-		employee.controller.ts  // Business logic (handles request/response)
-	models/
-		employee.model.ts    // Employee data type definition 
-	routes/
-		employee.routes.ts   // Defines API endpoints (GET, POST, etc.)
-	services/
-		employee.service.ts  // Database queries logic
-	app.ts                   // Middleware and routing setup
-	server.ts                // Entry point to start the server : start the server at localhost:8080
-----------------------------------------------
 
------------------------------------------------------------------------------------------------------
+ # Frontend Setup
 
-Frontend
-
-npm install -g @angular/cli
-ng version
+1. Create app:
 
 ng new employee_app
 cd employee_app
 npm install bootstrap@4 --save
-
-//
-In angular.json, under "styles":
----
-"node_modules/bootstrap/dist/css/bootstrap.min.css",
-"src/styles.css"
----
-//
-
 npm install @angular/forms
 
+2. Update angular.json:
+
+"styles": [
+  "node_modules/bootstrap/dist/css/bootstrap.min.css",
+  "src/styles.css"
+]
+
+3.Run app:
 ng serve
+
+4. Features
+Add/View/Edit/Delete employees
+
+Count employees by position
+
+Responsive modern UI with dark theme (gray + orange)
+
+Angular + Bootstrap styling
+
+5. Tech Stack
+Frontend: Angular, Bootstrap
+
+Backend: Node.js, Express, TypeScript
+
+Database: MySQL
+
+Backend: http://localhost:8080
+
+Frontend: http://localhost:4200
+
+
+
